@@ -1,0 +1,23 @@
+
+    <div *ngIf="show; then ok; else nok"></div>
+    <ng-template #ok>
+        <ul>
+            <li 
+            *ngFor="let color of colors; 
+            let o = odd;
+             let e = even;
+             let l = last;
+             let i = index" 
+            [style.color]="color"
+            [ngClass]="{'odd':o && !l, 'even':e && !l, 'last': l}"
+            [ngSwitch]="i">
+            <span *ngSwitchCase="1">Soy Azul</span>
+        <span *ngSwitchDefault>{{color | decorator:'***' | uppercase}}</span>
+            </li>
+        
+        </ul>
+    </ng-template>
+    <ng-template #nok>
+<span>Show a false</span>
+    </ng-template>
+    
