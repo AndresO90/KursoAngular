@@ -1,5 +1,9 @@
 <p>father works!</p>
+
 <button (click)="onClick()">Decir al Hijo</button>
 <app-child [message]="messageToChild" (reply)="responseFromChild($event)"></app-child>
 
 <p>{{messageFromChild}}</p>
+
+<button (click)="redirecting()">Redirect</button>
+<p>HOLA</p>

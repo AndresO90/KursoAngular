@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirstService } from 'src/app/first.service';
+import { RedirectService } from 'src/app/redirect.service';
 
 @Component({
   selector: 'app-father',
@@ -9,7 +10,7 @@ import { FirstService } from 'src/app/first.service';
 export class FatherComponent implements OnInit {
   messageToChild: string;
   messageFromChild: string;
-  constructor(private firstService: FirstService) { }
+  constructor(private firstService: FirstService, private redirect: RedirectService) { }
 
   ngOnInit(): void {
   }
@@ -19,5 +20,8 @@ onClick() {
 }
 responseFromChild(event) {
   this.messageFromChild = event;
+}
+redirecting() {
+  this.redirect.goToDirectivas();
 }
 }

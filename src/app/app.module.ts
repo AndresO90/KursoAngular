@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { DataBindingModule } from './data-binding/data-binding.module';
-import { DirectivasModule } from './directivas/directivas.module';
+
 const ROUTES: Routes = [
    { path: '', redirectTo: 'directivas', pathMatch: 'full' },
+   { path: 'directivas',
+  loadChildren: () => import('./directivas/directivas.module').then(m => m.DirectivasModule)},
+   { path: 'databinding',
+  loadChildren: () => import('./data-binding/data-binding.module').then(m => m.DataBindingModule)},
    { path: '**', redirectTo: 'directivas'}
    ];
 
@@ -15,8 +18,6 @@ const ROUTES: Routes = [
   ],
   imports: [
     BrowserModule,
-    DirectivasModule,
-    DataBindingModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [],
