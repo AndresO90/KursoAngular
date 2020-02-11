@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { DataBindingModule } from './data-binding/data-binding.module';
 import { DirectivasModule } from './directivas/directivas.module';
-
+const ROUTES: Routes = [
+   { path: '', redirectTo: 'directivas', pathMatch: 'full' },
+   { path: '**', redirectTo: 'directivas'}
+   ];
 
 @NgModule({
   declarations: [
@@ -12,7 +16,8 @@ import { DirectivasModule } from './directivas/directivas.module';
   imports: [
     BrowserModule,
     DirectivasModule,
-    DataBindingModule
+    DataBindingModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]
