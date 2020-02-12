@@ -8,7 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ChildComponent implements OnInit, OnChanges {
 id: string;
-param: any;
+param: string;
+
   constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
   @Input() message: string;
   @Output() reply = new EventEmitter;
@@ -20,11 +21,11 @@ param: any;
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params.id;
-    this.param = this.activatedRoute.snapshot.queryParams.param;
-    // this.param = this.activatedRoute.queryParams.subscribe((queryParams) => {
-    //   console.log('quert', queryParams);
-    //   this.param = queryParams.param;
-    // });
+   // this.param = this.activatedRoute.snapshot.queryParams.param;
+    this.activatedRoute.queryParams.subscribe((queryParams) => {
+      console.log('quert', queryParams);
+      this.param = queryParams.param;
+    });
   }
   // onReply() {
   //   this.reply.emit('Me has dicho:' + this.message);
