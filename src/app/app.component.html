@@ -2,6 +2,8 @@
     <a [routerLink]="['directivas']">Directivas</a>
     <br>
     <a [routerLink]="['databinding']">Databinding</a>
+    <br>
+    <a [routerLink]="['databinding/1234']" [queryParams]="{param:'4345'}">Databinding con params</a>
 </nav>
 
 <router-outlet></router-outlet>

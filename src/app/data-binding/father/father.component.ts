@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FirstService } from 'src/app/first.service';
 import { RedirectService } from 'src/app/redirect.service';
 
@@ -10,9 +11,12 @@ import { RedirectService } from 'src/app/redirect.service';
 export class FatherComponent implements OnInit {
   messageToChild: string;
   messageFromChild: string;
-  constructor(private firstService: FirstService, private redirect: RedirectService) { }
+
+  constructor(private firstService: FirstService, private redirect: RedirectService,
+              private router: Router) { }
 
   ngOnInit(): void {
+    this.router.navigate(['/databinding'], {queryParams: {param: 123}});
   }
 onClick() {
   alert('Hola Mundo!');
@@ -24,4 +28,6 @@ responseFromChild(event) {
 redirecting() {
   this.redirect.goToDirectivas();
 }
+
+
 }

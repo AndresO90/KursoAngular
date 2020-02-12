@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { LayoutsModule } from './layouts/layouts.module';
 
 const ROUTES: Routes = [
    { path: '', redirectTo: 'directivas', pathMatch: 'full' },
@@ -13,12 +14,11 @@ const ROUTES: Routes = [
    ];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    LayoutsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
