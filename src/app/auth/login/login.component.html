@@ -1,1 +1,19 @@
 <p>login works!</p>
+
+<form [formGroup]="form">
+   <p>Username: <input type="text" formControlName="username"/></p> 
+    <div *ngIf="form.get('username').dirty && !form.get('username').valid">
+        
+        <p *ngIf="form.get('username').hasError('userTaken')">
+            El nombre ya está usado
+        </p>
+        <p *ngIf="form.get('username').hasError('minLength')">
+            El nombre debe contener 2 caracteres minimo
+        </p>
+        
+    </div>
+  <p>Password:  <input type="password" formControlName="password"/></p>  
+    <button [disabled]="!form.valid" (click)="onsave()">Send</button>
+    </form>
+
+    {{ form.valid }}

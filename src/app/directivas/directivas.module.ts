@@ -6,7 +6,6 @@ import { ExampleDirectivesComponent } from './example-directives/example-directi
 
 const ROUTES: Routes = [
   { path: '', component: ExampleDirectivesComponent },
-
   ];
 @NgModule({
   declarations: [ExampleDirectivesComponent],

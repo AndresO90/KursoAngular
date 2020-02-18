@@ -12,5 +12,10 @@ export class AuthService implements CanActivate {
      }
     return !!token;
   }
+  getToken() {
+    const token = sessionStorage.getItem('token');
+    console.log('token desde auth.service: ', token);
+    return token;
+  }
   constructor(router: Router) { }
 }
